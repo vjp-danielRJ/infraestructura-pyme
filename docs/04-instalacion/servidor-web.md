@@ -87,3 +87,52 @@ Acceder desde el navegador a `http://IP-SERVIDOR` y comprobar que aparece la pá
 | Apache | 2.4.60 |
 | PHP | 8.1 |
 | libapache2-mod-php | 8.1 |
+
+## 7. Configuración del Balanceador de Carga HAProxy
+
+### 7.1 Instalación de HAProxy
+
+```bash
+apt update
+apt install haproxy -y
+```
+
+Verificar que HAProxy está activo:
+```bash
+systemctl status haproxy
+```
+
+Habilitar HAProxy para arranque automático:
+```bash
+systemctl enable haproxy
+```
+
+### 7.2 Configuración básica
+
+Editar el archivo de configuración:
+```bash
+nano /etc/haproxy/haproxy.cfg
+```
+
+Añadir la siguiente configuración al final del archivo:
+frontend http_front
+bind *:80
+default_backend http_backbackend http_back
+balance roundrobin
+server servidor1 192.168.1.10:80 check
+server servidor2 192.168.1.11:80 check
+
+Reiniciar HAProxy para aplicar cambios:
+```bash
+systemctl restart haproxy
+```
+
+### 7.3 Verificación
+
+Comprobar que HAProxy está distribuyendo el tráfico correctamente:
+```bash
+haproxy -c -f /etc/haproxy/haproxy.cfg
+```
+
+Acceder al panel de estadísticas de HAProxy:
+`http://IP-SERVIDOR:8404/stats`

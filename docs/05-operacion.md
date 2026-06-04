@@ -54,3 +54,40 @@
 |---|---|---|
 | Daniel Rubio | Administrador de sistemas | admin@pyme.local |
 | Daniel Mateos | Administrador de plataforma | plataforma@pyme.local |
+
+## 6. Mantenimiento del Balanceador HAProxy
+
+### Tareas diarias
+- Comprobar el estado de HAProxy:
+```bash
+  systemctl status haproxy
+```
+- Revisar logs de HAProxy:
+```bash
+  tail -n 50 /var/log/haproxy.log
+```
+- Verificar que los servidores backend están activos en el panel de estadísticas:
+  `http://IP-SERVIDOR:8404/stats`
+
+### Tareas semanales
+- Revisar el balance de carga entre servidores
+- Comprobar que no hay servidores marcados como caídos
+- Revisar el archivo de configuración por si hay cambios pendientes:
+```bash
+  haproxy -c -f /etc/haproxy/haproxy.cfg
+```
+
+### Procedimiento ante caída de HAProxy
+1. Intentar reiniciar el servicio:
+```bash
+   systemctl restart haproxy
+```
+2. Si no arranca, revisar logs:
+```bash
+   journalctl -xe | grep haproxy
+```
+3. Restaurar configuración desde backup:
+```bash
+   cp /var/backups/pyme/haproxy.cfg /etc/haproxy/haproxy.cfg
+   systemctl restart haproxy
+```
