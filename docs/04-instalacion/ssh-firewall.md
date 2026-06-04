@@ -1,0 +1,5 @@
+## Configuración de firewall con UFW
+- `ufw default deny incoming`
+- `ufw allow 22/tcp`
+- `ufw allow 80,443/tcp`
+- `ufw enable`
