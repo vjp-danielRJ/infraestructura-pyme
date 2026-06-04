@@ -35,7 +35,14 @@ Activar UFW:
 ```bash
 ufw enable
 ```
-L
+
+## Configuración de firewall con UFW
+- `ufw default deny incoming`
+- `ufw allow 22/tcp`   # SSH para administración
+- `ufw allow 80,443/tcp`  # Web
+- `ufw enable`
+
+
 Permitir SSH solo desde la red de la oficina:
 ```bash
 ufw allow from 192.168.1.0/24 to any port 22
