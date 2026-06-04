@@ -2,7 +2,17 @@
 
 Todos los cambios relevantes del proyecto se documentan en este archivo.
 
-## [Unreleased]
+## [1.0.0] - 2026-06-04
+### Añadido
+- Balanceador de carga HAProxy (`servidor-web.md`)
+- Tareas de mantenimiento de HAProxy (`05-operacion.md`)
+- Diagrama de red actualizado con HAProxy (`02-diseno.md`)
+- Planificación actualizada con nueva fase (`03-planificacion.md`)
+- Issue #1 gestionado: "Añadir balanceador HAProxy a la infraestructura"
+- README.md completo con estructura y tecnologías
+- Archivo REVISION.md con reflexión del equipo
+### Cambiado
+- Versión del proyecto a v1.0.0
 
 ## [0.3.0] - 2026-06-04
 ### Añadido
