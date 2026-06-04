@@ -7,7 +7,7 @@ Internet → Firewall (UFW) → Servidor Apache (80/443) → MySQL (3306)
 | Componente | Versión | Función |
 |------------|---------|---------|
 | Ubuntu Server | 22.04 LTS | Sistema operativo base |
-| Apache | 2.4.59 | Servidor web |
+| Apache | 2.4.60 | Servidor web |
 | Certbot para SSL | 2.1 | Servidor web |
 | PHP | 8.1 | Procesamiento servidor |
 | MySQL | 8.0 | Base de datos |
