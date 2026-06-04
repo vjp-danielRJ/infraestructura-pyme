@@ -35,6 +35,7 @@ Activar UFW:
 ```bash
 ufw enable
 ```
+
 ## Configuración de firewall con UFW
 - `ufw default deny incoming`
 - `ufw allow 22/tcp`   # SSH para administración
